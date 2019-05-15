@@ -1,0 +1,488 @@
+{
+  "name": "NST Metrics V1(Internal)",
+  "version": "0.1.2",
+  "size": {
+    "width": 6,
+    "height": 6
+  },
+  "fullpage": true,
+  "mapping": [
+    {
+      "alias": "card_dataset",
+      "dataSetId": "39690179-112b-4a5c-a877-fb476986a337",
+      "fields": [
+        {
+          "alias": "kpi_title",
+          "columnName": "kpi_title"
+        },
+        {
+          "alias": "kpi_id",
+          "columnName": "kpi_id"
+        },
+        {
+          "alias": "page_id",
+          "columnName": "page_id"
+        },
+        {
+          "alias": "kpi_type",
+          "columnName": "kpi_type"
+        },
+        {
+          "alias": "data_source_id",
+          "columnName": "data_source_id"
+        },
+        {
+          "alias": "kpi_responsible_user_name",
+          "columnName": "kpi_responsible_user_name"
+        },
+        {
+          "alias": "kpi_views_last_30_days",
+          "columnName": "kpi_views_last_30_days"
+        },
+        {
+          "alias": "kpi_views_last_60_days",
+          "columnName": "kpi_views_last_60_days"
+        },
+        {
+          "alias": "kpi_views_last_90_days",
+          "columnName": "kpi_views_last_90_days"
+        },
+        {
+          "alias": "kpi_views_this_year",
+          "columnName": "kpi_views_this_year"
+        },
+        {
+          "alias": "kpi_views_last_12_months",
+          "columnName": "kpi_views_last_12_months"
+        },
+        {
+          "alias": "kpi_views_all_time",
+          "columnName": "kpi_views_all_time"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        },
+        {
+          "alias": "data_source_name",
+          "columnName": "data_source_name"
+        },
+        {
+          "alias": "page_title",
+          "columnName": "page_title"
+        },
+        {
+          "alias": "kpi_responsible_user_email",
+          "columnName": "kpi_responsible_user_email"
+        }
+      ]
+    },
+    {
+      "alias": "page_dataset",
+      "dataSetId": "8e08d9fa-d2ba-4462-aae1-bfa6ebefc2ed",
+      "fields": [
+        {
+          "alias": "page_title",
+          "columnName": "page_title"
+        },
+        {
+          "alias": "page_id",
+          "columnName": "page_id"
+        },
+        {
+          "alias": "page_type",
+          "columnName": "page_type"
+        },
+        {
+          "alias": "parent_page_title",
+          "columnName": "parent_page_title"
+        },
+        {
+          "alias": "parent_page_id",
+          "columnName": "parent_page_id"
+        },
+        {
+          "alias": "page_responsible_user_name",
+          "columnName": "page_responsible_user_name"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        },
+        {
+          "alias": "page_responsible_user_email",
+          "columnName": "page_responsible_user_email"
+        },
+        {
+          "alias": "parent_page_responsible_user_email",
+          "columnName": "parent_page_responsible_user_email"
+        }
+      ]
+    },
+    {
+      "alias": "dataset_dataset",
+      "dataSetId": "161cbfad-eb41-495e-afbd-93723d9a458e",
+      "fields": [
+        {
+          "alias": "data_source_name",
+          "columnName": "data_source_name"
+        },
+        {
+          "alias": "data_source_id",
+          "columnName": "data_source_id"
+        },
+        {
+          "alias": "data_source_type",
+          "columnName": "data_source_type"
+        },
+        {
+          "alias": "number_of_cards",
+          "columnName": "number_of_cards"
+        },
+        {
+          "alias": "dataset_linked_to_dataflow",
+          "columnName": "dataset_linked_to_dataflow"
+        },
+        {
+          "alias": "data_source_responsible_user_name",
+          "columnName": "data_source_responsible_user_name"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        },
+        {
+          "alias": "data_source_responsible_user_email",
+          "columnName": "data_source_responsible_user_email"
+        }
+      ]
+    },
+    {
+      "alias": "dataflow_dataset",
+      "dataSetId": "840a0c4f-d412-4128-b384-4d72ebc8f860",
+      "fields": [
+        {
+          "alias": "dataflow_id",
+          "columnName": "dataflow_id"
+        },
+        {
+          "alias": "df_input_output",
+          "columnName": "df_input_output"
+        },
+        {
+          "alias": "data_source_id",
+          "columnName": "data_source_id"
+        },
+        {
+          "alias": "data_source_name",
+          "columnName": "data_source_name"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        }
+      ]
+    },
+    {
+      "alias": "user_dataset",
+      "dataSetId": "a2bf5245-bac7-40cb-b3c4-be7a57d5c694",
+      "fields": [
+        {
+          "alias": "user_name",
+          "columnName": "user_name"
+        },
+        {
+          "alias": "user_email_address",
+          "columnName": "user_email_address"
+        },
+        {
+          "alias": "user_role",
+          "columnName": "user_role"
+        },
+        {
+          "alias": "login_count",
+          "columnName": "login_count"
+        },
+        {
+          "alias": "num_kpi",
+          "columnName": "num_kpi"
+        },
+        {
+          "alias": "num_page",
+          "columnName": "num_page"
+        },
+        {
+          "alias": "num_dataset",
+          "columnName": "num_dataset"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        }
+      ]
+    },
+    {
+      "alias": "card_no_views_dataset",
+      "dataSetId": "fd5d2cbe-ec0e-4086-bf83-bd13b73a8648",
+      "fields": [
+        {
+          "alias": "kpi_title",
+          "columnName": "kpi_title"
+        },
+        {
+          "alias": "kpi_id",
+          "columnName": "kpi_id"
+        },
+        {
+          "alias": "page_id",
+          "columnName": "page_id"
+        },
+        {
+          "alias": "kpi_type",
+          "columnName": "kpi_type"
+        },
+        {
+          "alias": "data_source_id",
+          "columnName": "data_source_id"
+        },
+        {
+          "alias": "kpi_responsible_user_name",
+          "columnName": "kpi_responsible_user_name"
+        },
+        {
+          "alias": "kpi_views_last_30_days",
+          "columnName": "kpi_views_last_30_days"
+        },
+        {
+          "alias": "kpi_views_last_60_days",
+          "columnName": "kpi_views_last_60_days"
+        },
+        {
+          "alias": "kpi_views_last_90_days",
+          "columnName": "kpi_views_last_90_days"
+        },
+        {
+          "alias": "kpi_views_this_year",
+          "columnName": "kpi_views_this_year"
+        },
+        {
+          "alias": "kpi_views_last_12_months",
+          "columnName": "kpi_views_last_12_months"
+        },
+        {
+          "alias": "kpi_views_all_time",
+          "columnName": "kpi_views_all_time"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        },
+        {
+          "alias": "data_source_name",
+          "columnName": "data_source_name"
+        },
+        {
+          "alias": "page_title",
+          "columnName": "page_title"
+        },
+        {
+          "alias": "kpi_responsible_user_email",
+          "columnName": "kpi_responsible_user_email"
+        }
+      ]
+    },
+    {
+      "alias": "dataset_no_card_no_flow_dataset",
+      "dataSetId": "ca12981b-4469-46f1-b206-6647f214bf06",
+      "fields": [
+        {
+          "alias": "data_source_name",
+          "columnName": "data_source_name"
+        },
+        {
+          "alias": "data_source_id",
+          "columnName": "data_source_id"
+        },
+        {
+          "alias": "data_source_type",
+          "columnName": "data_source_type"
+        },
+        {
+          "alias": "number_of_cards",
+          "columnName": "number_of_cards"
+        },
+        {
+          "alias": "dataset_linked_to_dataflow",
+          "columnName": "dataset_linked_to_dataflow"
+        },
+        {
+          "alias": "data_source_responsible_user_name",
+          "columnName": "data_source_responsible_user_name"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        },
+        {
+          "alias": "data_source_responsible_user_email",
+          "columnName": "data_source_responsible_user_email"
+        }
+      ]
+    },
+    {
+      "alias": "user_no_logins_dataset",
+      "dataSetId": "5a4cdf02-f167-4cf1-af53-f0aaea02b824",
+      "fields": [
+        {
+          "alias": "user_name",
+          "columnName": "user_name"
+        },
+        {
+          "alias": "user_email_address",
+          "columnName": "user_email_address"
+        },
+        {
+          "alias": "user_role",
+          "columnName": "user_role"
+        },
+        {
+          "alias": "login_count",
+          "columnName": "login_count"
+        },
+        {
+          "alias": "num_kpi",
+          "columnName": "num_kpi"
+        },
+        {
+          "alias": "num_page",
+          "columnName": "num_page"
+        },
+        {
+          "alias": "num_dataset",
+          "columnName": "num_dataset"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        }
+      ]
+    },
+    {
+      "alias": "orphaned_kpi_data_pull",
+      "dataSetId": "3f09b7ca-3c31-454b-8a9c-7f44aceec716",
+      "fields": [
+        {
+          "alias": "kpi_title",
+          "columnName": "kpi_title"
+        },
+        {
+          "alias": "kpi_id",
+          "columnName": "kpi_id"
+        },
+        {
+          "alias": "page_id",
+          "columnName": "page_id"
+        },
+        {
+          "alias": "kpi_type",
+          "columnName": "kpi_type"
+        },
+        {
+          "alias": "data_source_id",
+          "columnName": "data_source_id"
+        },
+        {
+          "alias": "kpi_responsible_user_name",
+          "columnName": "kpi_responsible_user_name"
+        },
+        {
+          "alias": "kpi_views_last_30_days",
+          "columnName": "kpi_views_last_30_days"
+        },
+        {
+          "alias": "card_has_owner",
+          "columnName": "card_has_owner"
+        },
+        {
+          "alias": "exists_on_page",
+          "columnName": "exists_on_page"
+        },
+        {
+          "alias": "environment",
+          "columnName": "environment"
+        },
+        {
+          "alias": "instance_name",
+          "columnName": "instance_name"
+        },
+        {
+          "alias": "data_source_name",
+          "columnName": "data_source_name"
+        },
+        {
+          "alias": "page_title",
+          "columnName": "page_title"
+        },
+        {
+          "alias": "kpi_responsible_user_email",
+          "columnName": "kpi_responsible_user_email"
+        }
+      ]
+    },
+    {
+      "alias": "lastupdated",
+      "dataSetId": "efcf21f2-09a4-4b13-921c-13c013b0da33",
+      "fields": [
+        {
+          "alias": "kpi_page_last_update",
+          "columnName": "kpi_page_last_update"
+        },
+        {
+          "alias": "dataset_last_update",
+          "columnName": "dataset_last_update"
+        },
+        {
+          "alias": "kpi_view_last_update",
+          "columnName": "kpi_view_last_update"
+        },
+        {
+          "alias": "user_login_last_update",
+          "columnName": "user_login_last_update"
+        }
+      ]
+    }
+  ],
+  "id": ""
+}

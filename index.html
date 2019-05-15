@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<div id = "start">  
+    <head>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="domo.js"></script>
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="Script.js"></script>
+    <script type="text/javascript" src="input_data.js"></script>
+    <script type="text/javascript" src="html2csv.js" ></script>
+    <script type="text/javascript" src="sorttable.js"></script>
+    
+   
+
+    
+
+  </head>
+  <body class= body1 >
+
+    <div id="container">
+      <h1>NST</h1>
+      
+      <h2>Introduction</h2>
+      <p>This tool is designed to help you find infomation about a customer instance.</p> <p>This data should only be shared with admin users</p>
+
+      <h2>Information</h2>
+      <p><a href="https://docs.google.com/document/d/1oB-/edit?usp=sharing"> Link to documentation</a> </p>
+      <p>PAGE Data is currently INACCURATE, I am working with dev on it.</p>
+      <p>Data is normally ~24 hours accurate. At the top left you will see data accuracy</p><p>You must have an environment and instance name entered.</p>
+      <h2>Issues/Enhancements</h2>
+      <p>Please direct questions/enhancements to Nolan Landefeld nolan.landefeld@domo.com   If you are seeing any issues please be descriptive and include screenshots.</p>
+        <p>Click The tree icon to get started. 
+      </p>
+      <input type="image" src="images/linktonextpage.png" alt="tree-link-image" style="width:128px;height:128px;" onclick="showDiv()">
+      
+
+      </a>
+    </div>
+  </body>
+</div>
+<div id="page2" >
+
+
+  <body class=body2 onload="data_last_updated_function()">
+
+
+
+
+    <div id="container">
+      <h3>NST Admin Metrics</h3>
+    <div id="card_page_circle"></div><p1>Card</p1>
+    <div id="dataset_circle"></div><p2>Dataset</p2>
+    <div id="card_views_circle"></div><p3>Card Views</p3>
+    <div id="user_login_circle"></div><p4>User Info.</p4>
+    <h4>Data Age</h4>
+        
+          <input type="text" id="EnvironmentSearch" onkeyup="closeMetrics()" value="prod1" placeholder="Environment">
+          <input type="text" id="InstanceSearch" onkeyup="closeMetrics()" value ="support" placeholder="Instance Name">
+          <input type="text" id="CNSearch" onkeyup="fitlerCardName();fitlerCardNameKNO();fitlerCardNameO();" placeholder="Search By Card Name">
+          <input type="text" id="CIDSearch" onkeyup="fitlerCardId();fitlerCardIdKNO();fitlerCardIdO();" placeholder="Search By Card Id">
+          <input type="text" id="PNSearch" onkeyup="fitlerPageName();fitlerPageNamePA();fitlerPageNameO();fitlerPageNameKNO();fitlerPageNameCT();" placeholder="Search By Page Name">
+          <input type="text" id="PIDSearch" onkeyup="fitlerPageIdCT();fitlerPageIdPT();fitlerPageIdPTP();fitlerPageIdKNO();fitlerPageIdO();" placeholder="Search By Page Id">
+          <input type="text" id="DSNSearch" onkeyup="fitlerdatasetname();fitlerdatasetnameDF();fitlerdatasetnameDNO();fitlerdatasetnameO();fitlerdatasetnameKNO();fitlerdatasetnameCT();" placeholder="Search By Dataset Name">
+          <input type="text" id="DSIDSearch" onkeyup="fitlerdatasetIdCT();fitlerdatasetIdDT();fitlerdatasetIdDFT();fitlerdatasetIdKNO();fitlerdatasetIdDNO();fitlerdatasetIdO();" placeholder="Search By Dataset Id">
+          <input type="text" id="DFSearch" onkeyup="filterDataflowId()" placeholder="Search By DataFlow ID">
+          <input type="text" id="UNSearch" onkeyup="fitlerownernameCT();fitlerownernamePT();fitlerownernameDT();fitlerownernameUT();fitlerownernameKNO();fitlerownernameDNO();fitlerownernameO();fitlerownernameUNO();" placeholder="Search By User Name">
+          <input type="text" id="OESearch" onkeyup="fitlerowneremail();fitlerowneremailUNO();fitlerowneremailO();fitlerowneremailKNO();fitlerowneremailCT();fitlerowneremailDNO();fitlerowneremailDT();fitlerowneremailPPT();fitlerowneremailPT();" placeholder="Search By Owner Email">
+            
+
+<ul class="tab">
+  <!--<li><a href="javascript:void(0)" class="tablinks" onclick="openMetrics(event, 'Search')">Search</a></li>-->
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openMetrics(event, 'Card_Information');card_data_pull();">Card Information</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openMetrics(event, 'page_information');page_data_pull();">Page Information</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openMetrics(event, 'dataset_information');dataset_data_pull();">Dataset Information</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openMetrics(event, 'Dataflow_information');dataflow_data_pull();">Dataflow Information</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openMetrics(event, 'User_information');user_data_pull();">User Information</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openMetrics(event, 'common_information')">Common Data Clean Up</a></li>
+
+</ul>
+
+
+    <div id="nodata" style="display:none" class="cssload-loader"> No Results</div>
+  <div id="man" style="display:none">
+    <div id="eye-l" style="display:none"></div>
+    <div id="eye-r" style="display:none"></div>
+    <div id="nose" style="display:none"></div>
+    <div id="mouth" style="display:none"></div>
+    </div>
+  <div id="wall" style="display:none"></div>
+
+      <div style="display:none;" id="Card_Information" class="tabcontent" style="margin:0;">
+        
+      <div id="cloader"></div>
+      <div style="display:none;" id="myDivc" class="animate-bottom" style:"display:none">
+        <a href="#" class= "export" id="cardxx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+          <table id="cardtable" class="sortable"> <thead>
+              <tr>
+                <th style="width:200px">Card Title</th>
+                <th style="width:100px" class="sorttable_numeric">Card Id</th>
+                <th style="width:100px" class="sorttable_numeric">Page Id</th>
+                <th style="width:100px">Card Type</th>
+                <th style="width:200px">DataSource ID</th>
+                <th style="width:200px">Card Owner Name</th>
+                <th style="width:130px" class="sorttable_numeric">Views Last 30 Days</th>
+                <th style="width:130px" class="sorttable_numeric">Views Last 12 Months</th>
+                <th style="width:130px" class="sorttable_numeric">Views All Time</th>
+                <th style="display:none">dataset name</th>
+                <th style="display:none">page name</th>
+                <th style="display:none">user email</th>
+                
+              </tr>
+            </thead>
+            <tbody id = "card_tbody">
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+
+      <div style="display:none" style="margin:0;" id="page_information" class="tabcontent">
+        <div id="ploader"></div>
+        <div style="display:none;" id="myDivp" class="animate-bottom">
+        <a href="#" class= "export" id="pagexx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+          <table id="pagetable" class="sortable"> <thead>
+            <tr>
+              <th style="width:200px">Page Name</th>
+              <th style="width:200px" class="sorttable_numeric">Page Id</th>
+              <th style="width:200px">Page Type</th>
+              <th style="width:200px">Parent Page Name</th>
+              <th style="width:200px" class="sorttable_numeric">Parent Page Id</th>
+              <th style="width:200px">Page Owner Name</th>
+              <th style="display:none">page owner email</th>
+              <th style="display:none">parent page owner email</th>
+            </tr>
+          </thead>
+          <tbody id = "page_tbody">
+          </tbody>
+          </table>
+      </div>
+    </div>
+
+      <div style="display:none" style="margin:0;" id="dataset_information" class="tabcontent">
+        <div id="dloader"></div>
+        <div style="display:none;" id="myDivd" class="animate-bottom">
+        <a href="#" class= "export" id="datasetxx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+          <table id="datasettable" class="sortable"><thead>
+
+              <tr>
+                <th style="width:250px">DataSource Name</th>
+                <th style="width:250px">DataSource Id</th>
+                <th style="width:200px">DataSource Type</th>
+                <th style="width:200px" class="sorttable_numeric">Number Of Cards Attached</th>
+                <th style="width:200px">Linked To Dataflow?</th>
+                <th style="width:200px">Owner Name</th>
+                <th style="display:none">datasource email</th>
+                
+              </tr>
+            </thead>
+            <tbody id = "dataset_tbody">
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+      <div style="display:none" style="margin:0;" id="Dataflow_information" class="tabcontent">
+        <div id="dfloader"></div>
+        <div style="display:none;" id="myDivdf" class="animate-bottom">
+        <a href="#" class= "export" id="dataflowxx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+          <table id="dataflowtable" class="sortable"><thead>
+            <tr>
+              <th style="width:300px" class="sorttable_numeric">Dataflow Id</th>
+              <th style="width:300px">Input/Output Dataset</th>
+              <th style="width:300px">DataSource ID</th>
+              <th style="width:300px">DataSource Name</th>
+            </tr>
+          </thead>
+          <tbody id ="dataflow_tbody">
+          </tbody>
+          </table>
+      </div>
+    </div>
+
+      <div style="display:none" style="margin:0;" id="User_information" class="tabcontent">
+               <div id="uloader"></div>
+        <div style="display:none;" id="myDivu" class="animate-bottom">
+        <a href="#" class= "export" id="userxx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+          <table id="usertable" class="sortable"><thead>
+
+            <tr>
+              <th style="width:200px">User Name</th>
+              <th style="width:250px">User Email</th>
+              <th style="width:180px">Security Profile</th>
+              <th style="width:200px" class="sorttable_numeric">Logins Last 30 Days</th>
+              <th style="width:200px" class="sorttable_numeric">Cards Owned</th>
+              <th style="width:200px" class="sorttable_numeric">Pages Owned</th>
+              <th style="width:200px" class="sorttable_numeric">Datasets Owned</th>
+            </tr>
+          </thead>
+          <tbody id ="user_tbody">
+          </tbody>
+          </table>
+      </div>
+    </div>
+
+      <div id="common_information" class="tabcontent">
+        <ul class="tab">
+          <li><a href="javascript:void(0)" class="tablinks_2" onclick="openMetrics_2(event, 'kpi_no_views');card_no_views_data_pull();">Cards With Less Than 5 Views Last 30 Days</a></li>
+           <li><a href="javascript:void(0)" class="tablinks_2" onclick="openMetrics_2(event, 'kpi_orphaned');orphaned_kpi_data_pull();">Orphaned Cards</a></li>
+          <li><a href="javascript:void(0)" class="tablinks_2" onclick="openMetrics_2(event, 'dataset_no_card_no_dataflow');dataset_no_kpi_flow_data_pull();">Datasets With No Cards Or Dataflows Attached</a></li>
+         
+          <li><a href="javascript:void(0)" class="tablinks_2" onclick="openMetrics_2(event, 'user_no_login');user_no_login_data_pull();">Users With Less Than 5 Logins Last 30 Days</a></li>
+        </ul>
+
+            <div style="display:none" style="margin:0;" id="kpi_no_views" class="tabcontent_2"> 
+            <div id="cnoloader"></div>
+        <div style="display:none;" id="myDivcno" class="animate-bottom">
+              <a href="#" class= "export" id="no_viewxx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+            <table id="kpi_no_views_table" class="sortable"><thead>
+              <tr>
+                <th style="width:200px" >Card Title</th>
+                <th style="width:100px" class="sorttable_numeric">Card Id</th>
+                <th style="width:100px" class="sorttable_numeric">Page Id</th>
+                <th style="width:100px">Card Type</th>
+                <th style="width:200px">DataSource ID</th>
+                <th style="width:200px">Card Owner Name</th>
+                <th style="width:130px" class="sorttable_numeric">Views Last 30 Days</th>
+                <th style="width:130px" class="sorttable_numeric">Views Last 12 Months</th>
+                <th style="width:130px" class="sorttable_numeric">Views All Time</th>
+                <th style="display:none">dataset name</th>
+                <th style="display:none">page name</th>
+                <th style="display:none">user email</th>
+                
+              </tr>
+              </thead>
+              <tbody id = "Kpi_no_view_tbody">
+              </tbody></table>
+            </div>
+          </div>
+
+            <div style="display:none" style="margin:0;" id="dataset_no_card_no_dataflow" class="tabcontent_2"> 
+              <div id="dnoloader"></div>
+          <div style="display:none;" id="myDivdno" class="animate-bottom">
+              <table id = "dataset_no_table" class="sortable">
+              <a href="#" class= "export" id="dataset_noxx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+              <thead>
+              <tr>
+                <th style="width:250px">DataSource Name</th>
+                <th style="width:250px">DataSource Id</th>
+                <th style="width:200px">DataSource Type</th>
+                <th style="width:200px" class="sorttable_numeric">Number Of Cards Attached</th>
+                <th style="width:200px">Linked To Dataflow?</th>
+                <th style="width:200px">Owner Name</th>
+                <th style="display:none">owner email email</th>
+                
+              </tr>
+            </thead>
+            <tbody id="dataset_no_card_flow_tbody">
+            </tbody></table>
+            </div>
+          </div>
+
+
+            <div style="display:none" style="margin:0;" id="kpi_orphaned" class="tabcontent_2"> 
+              <div id="kpiorphloader"></div>
+          <div style="display:none;" id="myDivdKO" class="animate-bottom">
+              <table id="kpi_orphaned_table" class="sortable">
+                <a href="#" class= "export" id="kpi_orphanedxx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+                <thead>
+              <tr>
+                <th style="width:200px" >Card Title</th>
+                <th style="width:100px" class="sorttable_numeric">Card Id</th>
+                <th style="width:100px" class="sorttable_numeric">Page Id</th>
+                <th style="width:100px">Card Type</th>
+                <th style="width:200px">DataSource ID</th>
+                <th style="width:200px">Card Owner Name</th>
+                <th style="width:130px" class="sorttable_numeric">Views Last 30 Days</th>
+                <th style="width:130px">Has An Owner?</th>
+                <th style="width:130px">Exists On Page?</th>
+                <th style="display:none">dataset name</th>
+                <th style="display:none">page name</th>
+                <th style="display:none">user email</th>
+                
+            </tr>
+            </thead>
+            <tbody id="kpi_orphaned_tbody">
+            </tbody></table>
+            </div>
+          </div>
+
+             <div style="display:none" style="margin:0;" id="user_no_login" class="tabcontent_2"> 
+              <div id="unoloader"></div>
+          <div style="display:none;" id="myDivuno" class="animate-bottom">
+              <table id="user_no_table" class="sortable">
+                <a href="#" class= "export" id="user_noxx" align="center" style="text-decoration:none;color:#000;background-color:#72dbff;border:1px solid black;padding:8px;">Export Table As .CSV</a>
+                <thead>
+              <tr>
+              <th style="width:200px">User Name</th>
+              <th style="width:250px">User Email</th>
+              <th style="width:180px">Security Profile</th>
+              <th style="width:200px" class="sorttable_numeric">Logins Last 30 Days</th>
+              <th style="width:200px" class="sorttable_numeric">Cards Owned</th>
+              <th style="width:200px" class="sorttable_numeric">Pages Owned</th>
+              <th style="width:200px" class="sorttable_numeric">Datasets Owned</th>
+
+            </tr>
+                </thead>
+              <tbody id = "user_no_login_tbody">
+              </tbody id = ></table>
+            </div>
+
+      </div>
+
+
+
+  </body>
+
+</div>
+</html>
